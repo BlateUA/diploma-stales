@@ -1,0 +1,21 @@
+.m {
+  overflow-y: auto;
+  padding-top: 15px;
+}
+
+.m-a>div {
+  padding-top: 30px;
+}
+
+.m-c-wrapper, .m-s-wrapper {
+  padding-top: 20px;
+  height: 400px;
+}
+
+.panel {
+  height: 100%;
+}
+
+.m-c, .m-s {
+  overflow-y: scroll;
+}
