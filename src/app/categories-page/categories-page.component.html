@@ -1,3 +1,10 @@
-<p>
-  categories-page works!
-</p>
+<div class="m-c-wrapper">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h1 class="m-c-title">Категорії:</h1>
+    </div>
+    <div class="panel-body m-c">
+      <div class=" list-group m-c-content" *ngFor="let cat of categories">{{ cat.ukr }}</div>
+    </div>
+  </div>
+</div>

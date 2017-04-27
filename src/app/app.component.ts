@@ -1,10 +1,21 @@
 import { Component } from '@angular/core';
 
+import { AppWorkerService } from './app-worker.service';
+import { Category } from './consts/interfaces';
+
 @Component({
   selector: 'app-root',
+  providers: [AppWorkerService],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+
+  private categories: Category[];
+
+  constructor(private api: AppWorkerService) {
+
+  }
+
+
 }

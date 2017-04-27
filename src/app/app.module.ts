@@ -5,16 +5,31 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 
+import { RoutingModule } from './routing.module';
+
+import { PageNotFoundComponent } from './page-not-found.component';
+import { MainPageComponent } from './main-page/main-page.component';
+import { CategoriesPageComponent } from './categories-page/categories-page.component';
+import { AboutPageComponent } from './about-page/about-page.component';
+import { StalePageComponent } from './stale-page/stale-page.component';
+import { StalesListPageComponent } from './stales-list-page/stales-list-page.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PageNotFoundComponent,
+    MainPageComponent,
+    CategoriesPageComponent,
+    AboutPageComponent,
+    StalePageComponent,
+    StalesListPageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RoutingModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

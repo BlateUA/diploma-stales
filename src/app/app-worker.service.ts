@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/map';
 
 import { Category } from './consts/interfaces';
 import { url } from './consts/consts';
@@ -8,7 +8,8 @@ import { url } from './consts/consts';
 @Injectable()
 export class AppWorkerService {
 
-  private categoriesUrl = `${url}/categories`;
+  private categoriesUrl = `/api/categories`;
+  private steelsUrl = `/api/steels`;
 
   static errorHandler(err: any): Promise<any> {
     console.log(err);
@@ -17,11 +18,14 @@ export class AppWorkerService {
 
   constructor(private http: Http) { }
 
-  getCategories(): Promise<Category[]> {
+  getCategories() {
     return this.http.get(this.categoriesUrl)
-      .toPromise()
-      .then(response => response.json().data as Category[])
-      .catch(AppWorkerService.errorHandler);
+      .map(res => res.json());
+  }
+
+  getSteels() {
+    return this.http.get(this.steelsUrl)
+      .map(res => res.json());
   }
 
 }

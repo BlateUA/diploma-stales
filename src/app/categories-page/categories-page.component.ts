@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AppWorkerService } from '../app-worker.service';
+import { Category } from '../consts/interfaces';
 
 @Component({
   selector: 'app-categories-page',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoriesPageComponent implements OnInit {
 
-  constructor() { }
+  private categories: Category[];
+
+  constructor(private api: AppWorkerService) {
+    api.getCategories().subscribe(res => {
+      this.categories = res;
+    });
+  }
 
   ngOnInit() {
+
   }
 
 }
