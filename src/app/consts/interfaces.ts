@@ -2,6 +2,8 @@ export interface Category {
   _id: string;
   name: string;
   ukr: string;
+  description: string;
+  img: string;
 }
 
 export interface Steel {

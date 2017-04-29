@@ -1,10 +1,8 @@
-<div class="m-c-wrapper">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h1 class="m-c-title">Категорії:</h1>
-    </div>
-    <div class="panel-body m-c">
-      <div class=" list-group m-c-content" *ngFor="let cat of categories">{{ cat.ukr }}</div>
-    </div>
+<div class="row">
+  <div class="col-lg-4 item" *ngFor="let item of categories">
+    <img class="rounded-circle" [src]="[item.img]" alt="NO IMG" width="140" height="140">
+    <h2>{{item.ukr}}</h2>
+    <p>{{item.description}}</p>
+    <p><a class="btn btn-secondary" [routerLink]="['/category',item._id]" role="button">Переглянути »</a></p>
   </div>
 </div>

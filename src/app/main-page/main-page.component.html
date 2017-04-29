@@ -6,10 +6,10 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-md-4" *ngFor="let item of steels">
+    <div class="col-md-4 steel" *ngFor="let item of steels">
       <h2>{{item.name}}</h2>
       <p>{{item.description}}</p>
-      <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+      <p><a class="btn btn-secondary" [routerLink]="['/steel',item._id]" role="button">Переглянути »</a></p>
     </div>
   </div>
 </div>

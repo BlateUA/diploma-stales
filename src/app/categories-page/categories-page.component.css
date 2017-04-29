@@ -1,0 +1,15 @@
+.row {
+  max-width: 100%;
+}
+div {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-right: 0;
+  padding-left: 0;
+  text-align: center;
+}
+
+.item {
+  max-width: 33%;
+}
+

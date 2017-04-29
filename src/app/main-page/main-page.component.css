@@ -1,7 +1,14 @@
 .jumbotron {
+  width: 100%;
+  height: 300px;
   background-image: url("../../assets/images/stainless-steel.jpg");
   background-color: #333;
 }
+
 .jumbotron > .container {
   color: white;
+}
+
+.steel {
+  text-align: center;
 }

@@ -15,6 +15,8 @@ export class MainPageComponent implements OnInit {
   constructor(private api: AppWorkerService) {
     api.getSteels().subscribe(res => {
       this.steels = res;
+      this.steels.forEach( ( steel ) => this.steels.push(steel));
+      this.steels.forEach( ( steel ) => this.steels.push(steel));
     });
   }
 
