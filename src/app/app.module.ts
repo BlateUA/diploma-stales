@@ -11,8 +11,8 @@ import { PageNotFoundComponent } from './page-not-found.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { CategoriesPageComponent } from './categories-page/categories-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
-import { StalePageComponent } from './stale-page/stale-page.component';
-import { StalesListPageComponent } from './stales-list-page/stales-list-page.component';
+import { SteelPageComponent } from './steel-page/steel-page.component';
+import { SteelsListPageComponent } from './steels-list-page/steels-list-page.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +21,8 @@ import { StalesListPageComponent } from './stales-list-page/stales-list-page.com
     MainPageComponent,
     CategoriesPageComponent,
     AboutPageComponent,
-    StalePageComponent,
-    StalesListPageComponent
+    SteelPageComponent,
+    SteelsListPageComponent
   ],
   imports: [
     BrowserModule,

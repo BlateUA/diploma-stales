@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StalesListPageComponent } from './stales-list-page.component';
+import { SteelPageComponent } from './steel-page.component';
 
-describe('StalesListPageComponent', () => {
-  let component: StalesListPageComponent;
-  let fixture: ComponentFixture<StalesListPageComponent>;
+describe('SteelPageComponent', () => {
+  let component: SteelPageComponent;
+  let fixture: ComponentFixture<SteelPageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StalesListPageComponent ]
+      declarations: [ SteelPageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StalesListPageComponent);
+    fixture = TestBed.createComponent(SteelPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

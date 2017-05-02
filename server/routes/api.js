@@ -7,6 +7,7 @@ router.get('/', (req, res) => {
 });
 
 const MongoClient = require('mongodb').MongoClient;
+const ObjectId = require('mongodb').ObjectID;
 // const uri = "mongodb://blateua:302302@cluster0-shard-00-00-4rea0.mongodb.net:27017,cluster0-shard-00-01-4rea0.mongodb.net:27017,cluster0-shard-00-02-4rea0.mongodb.net:27017/DiplomaStales?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin";
 const uri = "mongodb://127.0.0.1:27017/stalesDb";
 let db;
@@ -31,12 +32,42 @@ router.get('/categories', (request, response) => {
   });
 });
 
+router.get('/category/:id', ( request, response )=>{
+  const id = request.params.id;
+  db.collection("categories").find({_id: new ObjectId(id)}).toArray((err,res)=>{
+    if ( err ){
+      response.status(500).send(err);
+    }
+    response.status(200).send(res);
+  });
+});
+
 router.get('/steels', (request, response) => {
   db.collection("steels").find().toArray((err,res)=>{
       if ( err ){
         response.status(500).send(err);
       }
       response.status(200).send(res);
+  });
+});
+
+router.get('/steel/:id', ( request, response )=>{
+  const id = request.params.id;
+  db.collection("steels").find({_id: new ObjectId(id)}).toArray((err,res)=>{
+    if ( err ){
+      response.status(500).send(err);
+    }
+    response.status(200).send(res);
+  });
+});
+
+router.get('/category/:id/steels', (request, response) => {
+  const id = request.params.id;
+  db.collection("steels").find({"category":id}).toArray((err,res)=>{
+    if ( err ){
+      response.status(500).send(err);
+    }
+    response.status(200).send(res);
   });
 });
 

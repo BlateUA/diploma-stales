@@ -9,12 +9,11 @@ export interface Category {
 export interface Steel {
   _id: string;
   name: string;
-  stamp: string;
-  classification: string;
   description: string;
-  analogs: Array<string>;
-  chemicalComposition: Object;
-  temperature: Object;
-  technologicalProperties: Object;
-  mechanicalProperties: Object;
+  critPointsTemperature?: object;
+  chemicalComposition?: object;
+  mechanicalProperties?: object[];
+  mechPropDependingOnTestTemperature?: object[];
+  techDetails?: object;
+  heatResistance?: object[];
 }
