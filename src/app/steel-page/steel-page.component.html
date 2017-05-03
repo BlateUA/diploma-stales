@@ -3,7 +3,7 @@
     <div *ngIf="steel" class="content-left">
       <div><h1 class="text-center">{{ steel.name }}</h1></div>
       <div><h6>{{ steel.description }}</h6></div>
-      <div *ngIf="steel.techDetails">
+      <div *ngIf="steel.techDetails" class="table-wrapper text-center">
         <table class="table table-bordered table-hover">
           <thead>
             <tr>
@@ -12,23 +12,17 @@
               </th>
             </tr>
             <tr>
-              <th *ngIf="steel.techDetails.forgingTemp" [innerHtml]="techDetailsSchema.forgingTemp"></th>
-              <th *ngIf="steel.techDetails.weldability">{{ techDetailsSchema.weldability }}</th>
-              <th *ngIf="steel.techDetails.fragility">{{ techDetailsSchema.fragility }}</th>
-              <th *ngIf="steel.techDetails.grindability">{{ techDetailsSchema.grindability }}</th>
+              <th class="text-center" *ngFor="let key of this.getKeys(steel.techDetails)" [innerHtml]="techDetailsSchema[key]"></th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td *ngIf="steel.techDetails.forgingTemp">{{ steel.techDetails.forgingTemp }}</td>
-              <td *ngIf="steel.techDetails.weldability">{{ steel.techDetails.weldability }}</td>
-              <td *ngIf="steel.techDetails.fragility">{{ steel.techDetails.fragility }}</td>
-              <td *ngIf="steel.techDetails.grindability">{{ steel.techDetails.grindability }}</td>
+              <td *ngFor="let key of this.getKeys(steel.techDetails)">{{ steel.techDetails[key] }}</td>
             </tr>
           </tbody>
         </table>
       </div>
-      <div *ngIf="steel.critPointsTemperature">
+      <div *ngIf="steel.critPointsTemperature" class="table-wrapper text-center">
         <table class="table table-bordered table-hover">
           <thead>
             <tr>
@@ -37,21 +31,61 @@
               </th>
             </tr>
             <tr>
-              <th *ngIf="steel.critPointsTemperature.Ac_1" [innerHtml]="critPointsTemperatureSchema.Ac_1"></th>
-              <th *ngIf="steel.critPointsTemperature.Ac_3" [innerHtml]="critPointsTemperatureSchema.Ac_3"></th>
-              <th *ngIf="steel.critPointsTemperature.Ar_1" [innerHtml]="critPointsTemperatureSchema.Ar_1"></th>
-              <th *ngIf="steel.critPointsTemperature.Ar_3" [innerHtml]="critPointsTemperatureSchema.Ar_3"></th>
-              <th *ngIf="steel.critPointsTemperature.Mn" [innerHtml]="critPointsTemperatureSchema.Mn"></th>
+              <th class="text-center" *ngFor="let key of this.getKeys(steel.critPointsTemperature)" [innerHtml]="critPointsTemperatureSchema[key]"></th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td *ngIf="steel.critPointsTemperature.Ac_1">{{ steel.critPointsTemperature.Ac_1 }}</td>
-              <td *ngIf="steel.critPointsTemperature.Ac_3">{{ steel.critPointsTemperature.Ac_3 }}</td>
-              <td *ngIf="steel.critPointsTemperature.Ar_1">{{ steel.critPointsTemperature.Ar_1 }}</td>
-              <td *ngIf="steel.critPointsTemperature.Ar_3">{{ steel.critPointsTemperature.Ar_3 }}</td>
-              <td *ngIf="steel.critPointsTemperature.Mn">{{ steel.critPointsTemperature.Mn }}</td>
+              <td *ngFor="let key of this.getKeys(steel.critPointsTemperature)">{{ steel.critPointsTemperature[key] }}</td>
             </tr>
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf="steel.chemicalComposition" class="table-wrapper text-center">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th [colSpan]="chemicalCompositionSchema.cells">
+                <h5 class="text-center" [innerHtml]="chemicalCompositionSchema.name"></h5>
+              </th>
+            </tr>
+            <tr>
+              <th class="text-center" *ngFor="let key of this.getKeys(steel.chemicalComposition)" [innerHtml]="chemicalCompositionSchema[key]"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td *ngFor="let key of this.getKeys(steel.chemicalComposition)">
+                <div *ngFor="let item of steel.chemicalComposition[key]">{{ item }}</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf="steel.mechanicalProperties" class="table-wrapper text-center">
+        <table class="table table-bordered table-hover">
+          <thead>
+          <tr>
+            <th [colSpan]="mechanicalPropertiesSchema.cells">
+              <h5 class="text-center" [innerHtml]="mechanicalPropertiesSchema.name"></h5>
+            </th>
+          </tr>
+          <tr>
+            <th class="text-center" *ngFor="let key of this.getKeys(steel.mechanicalProperties[0])" [innerHtml]="mechanicalPropertiesSchema[key]"></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of steel.mechanicalProperties">
+            <td *ngFor="let key of this.getKeys(item)">
+              <div *ngIf="'deliveryStatus' === key ; then deliveryStatus else arrays"></div>
+              <ng-template #deliveryStatus>
+                <p>{{ item[key] }}</p>
+              </ng-template>
+              <ng-template #arrays>
+                <p *ngFor="let i of item[key]">{{ i }}</p>
+              </ng-template>
+            </td>
+          </tr>
           </tbody>
         </table>
       </div>

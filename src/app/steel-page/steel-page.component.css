@@ -16,7 +16,17 @@ td:first-letter {
   text-transform: uppercase
 }
 
+td p {
+  min-width: 80px;
+}
+
 .content-left div {
-  padding-top: 10px;
+  padding-top: 20px;
   padding-bottom: 10px;
 }
+
+.table-wrapper {
+  border-top: 1px solid black;
+}
+
+

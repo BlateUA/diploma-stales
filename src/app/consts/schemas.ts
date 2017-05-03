@@ -40,3 +40,47 @@ export const critPointsTemperatureSchema: CritPointsTemperatureSchema = {
   Mn: 'Мн',
   cells: 5
 };
+
+export interface ChemicalCompositionSchema extends Countable {
+  G?: string;
+  Mn?: string;
+  Si?: string;
+  S?: string;
+  P?: string;
+  Cr?: string;
+  Ni?: string;
+  Cu?: string;
+  C?: string;
+}
+
+export const chemicalCompositionSchema: ChemicalCompositionSchema = {
+  name: 'Хімічний склад',
+  G: 'G',
+  Mn: 'Mn',
+  Si: 'Si',
+  S: 'S',
+  P: 'P',
+  Cr: 'Cr',
+  Ni: 'Ni',
+  Cu: 'Cu',
+  C: 'C',
+  cells: 9
+};
+
+export interface MechanicalPropertiesSchema extends Countable {
+  deliveryStatus?: string;
+  crossSection?: string;
+  tmpTensileStrength?: string;
+  elongationAfterFracture?: string;
+  HB?: string;
+}
+
+export const mechanicalPropertiesSchema: MechanicalPropertiesSchema = {
+  name: 'Механічні властивості',
+  deliveryStatus: 'Стан поставки',
+  crossSection: 'Переріз',
+  tmpTensileStrength: '&sigma;',
+  elongationAfterFracture: '&delta;',
+  HB: 'HB',
+  cells: 5
+};
