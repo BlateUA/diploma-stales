@@ -2,17 +2,7 @@
  * Created by viktor on 02.05.17.
  */
 
-interface Countable {
-  name: string;
-  cells: number;
-}
-
-export interface TechDetailsSchema extends Countable {
-  forgingTemp?: string;
-  weldability?: string;
-  fragility?: string;
-  grindability?: string;
-}
+import { TechDetailsSchema, CritPointsTemperatureSchema, ChemicalCompositionSchema, MechanicalPropertiesSchema, PropertiesSchema } from './interfaces';
 
 export const techDetailsSchema: TechDetailsSchema = {
   'name': 'Технологічні властивості',
@@ -23,14 +13,6 @@ export const techDetailsSchema: TechDetailsSchema = {
   'cells': 4
 };
 
-export interface CritPointsTemperatureSchema extends Countable {
-  Ac_1?: string;
-  Ac_3?: string;
-  Ar_1?: string;
-  Ar_3?: string;
-  Mn?: string;
-}
-
 export const critPointsTemperatureSchema: CritPointsTemperatureSchema = {
   name: 'Температура критичних точок, &deg;C',
   Ac_1: 'Ac<sub>1</sub>',
@@ -40,18 +22,6 @@ export const critPointsTemperatureSchema: CritPointsTemperatureSchema = {
   Mn: 'Мн',
   cells: 5
 };
-
-export interface ChemicalCompositionSchema extends Countable {
-  G?: string;
-  Mn?: string;
-  Si?: string;
-  S?: string;
-  P?: string;
-  Cr?: string;
-  Ni?: string;
-  Cu?: string;
-  C?: string;
-}
 
 export const chemicalCompositionSchema: ChemicalCompositionSchema = {
   name: 'Хімічний склад',
@@ -64,16 +34,9 @@ export const chemicalCompositionSchema: ChemicalCompositionSchema = {
   Ni: 'Ni',
   Cu: 'Cu',
   C: 'C',
+  As: 'As',
   cells: 9
 };
-
-export interface MechanicalPropertiesSchema extends Countable {
-  deliveryStatus?: string;
-  crossSection?: string;
-  tmpTensileStrength?: string;
-  elongationAfterFracture?: string;
-  HB?: string;
-}
 
 export const mechanicalPropertiesSchema: MechanicalPropertiesSchema = {
   name: 'Механічні властивості',
@@ -83,4 +46,41 @@ export const mechanicalPropertiesSchema: MechanicalPropertiesSchema = {
   elongationAfterFracture: '&delta;',
   HB: 'HB',
   cells: 5
+};
+
+const temp = [
+  '20',
+  '100',
+  '200',
+  '300',
+  '400',
+  '500',
+  '600',
+  '700',
+  '800',
+  '900'
+];
+
+export const eSchema: PropertiesSchema = {
+  name: 'Модуль нормальної пружності, Е, ГПа',
+  header: 'E',
+  label: 'Температура випробовування, &deg;C',
+  temp: temp,
+  cells: 10
+};
+
+export const gSchema: PropertiesSchema = {
+  name: 'Модуль пружності при зсуві скрученням G, ГПа',
+  header: 'G',
+  label: 'Температура випробовування, &deg;C',
+  temp: temp,
+  cells: 10
+};
+
+export const dignitySchema: PropertiesSchema = {
+  name: 'Густина p, кг/см<sup>3</sup>',
+  header: 'p',
+  label: 'Температура випробовування, &deg;C',
+  temp: temp,
+  cells: 10
 };

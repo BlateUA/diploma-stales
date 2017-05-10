@@ -2,8 +2,7 @@
   padding-bottom: 60px;
 }
 .row {
-  padding-right: 5px;
-  padding-left: 5px;
+  padding-left: 30px;
   height: 100%;
   width: 100%;
 }
@@ -20,7 +19,7 @@ td p {
   min-width: 80px;
 }
 
-.content-left div {
+.content-left div, .content-right div {
   padding-top: 20px;
   padding-bottom: 10px;
 }
@@ -29,4 +28,10 @@ td p {
   border-top: 1px solid black;
 }
 
-
+i {
+  z-index: 10;
+  position: fixed;
+  margin-top: 20px;
+  margin-left: 95%;
+  color: lightskyblue;
+}
