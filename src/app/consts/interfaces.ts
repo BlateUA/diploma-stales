@@ -9,6 +9,7 @@ export interface Category {
 export interface Steel {
   _id: string;
   name: string;
+  category: string;
   description: string;
   critPointsTemperature?: object;
   chemicalComposition?: object;

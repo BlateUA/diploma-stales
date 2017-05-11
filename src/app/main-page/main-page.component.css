@@ -13,3 +13,7 @@
 .steel {
   text-align: center;
 }
+
+p:first-letter {
+  text-transform: uppercase;
+}

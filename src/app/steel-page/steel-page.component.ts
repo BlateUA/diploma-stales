@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {AppWorkerService} from '../app-worker.service';
-import { Steel, TechDetailsSchema, CritPointsTemperatureSchema, ChemicalCompositionSchema, MechanicalPropertiesSchema, PropertiesSchema } from '../consts/interfaces';
+import { AppWorkerService } from '../app-worker.service';
+import {
+  Steel, TechDetailsSchema, CritPointsTemperatureSchema, ChemicalCompositionSchema, MechanicalPropertiesSchema,
+  PropertiesSchema, Category
+} from '../consts/interfaces';
 import { techDetailsSchema, critPointsTemperatureSchema, chemicalCompositionSchema, mechanicalPropertiesSchema, dignitySchema, eSchema, gSchema } from '../consts/schemas';
 import { Charts } from './charts';
 
@@ -15,6 +18,7 @@ export class SteelPageComponent implements OnInit {
   chartVisible = false;
   steelId: string;
   steel: Steel;
+  category: Category;
   api: AppWorkerService;
   techDetailsSchema: TechDetailsSchema;
   critPointsTemperatureSchema: CritPointsTemperatureSchema;
@@ -52,8 +56,13 @@ export class SteelPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.api.getSteelById(this.steelId).subscribe(res => {
-      this.steel = res[0];
+    this.api.getSteelById(this.steelId).subscribe(steel => {
+
+      this.steel = steel[0];
+      this.api.getCategoryById(this.steel.category).subscribe(category => {
+          this.category = category[0];
+      });
+
       if (this.steel.techDetails) {
         this.techDetailsSchema.cells = this.getKeys(this.steel.techDetails).length;
       }

@@ -2,6 +2,7 @@
   <span *ngIf="steel && (steel.E || steel.G || steel.dignity)" (click)="chartVisible = !chartVisible"><i *ngIf="!chartVisible" class="fa fa-arrow-left fa-3x" aria-hidden="true"></i><i *ngIf="chartVisible" class="fa fa-arrow-right fa-3x" aria-hidden="true"></i></span>
   <div [ngClass]="{'col-lg-12': !chartVisible,'col-lg-6': chartVisible}">
     <div *ngIf="steel" class="content-left">
+      <div id="category_name" *ngIf="category"><a [routerLink]="['/category',category._id]">{{ category.ukr }}</a></div>
       <div><h1 class="text-center">{{ steel.name }}</h1></div>
       <div><h6 [innerHtml]="steel.description"></h6></div>
       <div *ngIf="steel.techDetails" class="table-wrapper text-center">
