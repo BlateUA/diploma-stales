@@ -8,8 +8,9 @@ router.get('/', (req, res) => {
 
 const MongoClient = require('mongodb').MongoClient;
 const ObjectId = require('mongodb').ObjectID;
+const uri = "mongodb://blate:302302@ds139791.mlab.com:39791/steels_db";
 // const uri = "mongodb://blateua:302302@cluster0-shard-00-00-4rea0.mongodb.net:27017,cluster0-shard-00-01-4rea0.mongodb.net:27017,cluster0-shard-00-02-4rea0.mongodb.net:27017/DiplomaStales?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin";
-const uri = "mongodb://127.0.0.1:27017/stalesDb";
+// const uri = "mongodb://127.0.0.1:27017/stalesDb";
 let db;
 
 MongoClient.connect(uri, function(err, database) {
