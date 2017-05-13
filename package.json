@@ -5,15 +5,17 @@
   "main": "server.js",
   "author": "ViktorSadovyi",
   "scripts": {
-    "start": "ng build & node server.js",
+    "start": "node server.js",
     "ng": "ng",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --aot -prod"
   },
   "private": true,
   "dependencies": {
+    "@angular/cli": "1.0.0",
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
     "@angular/core": "^4.0.0",
@@ -33,7 +35,6 @@
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
-    "@angular/cli": "1.0.0",
     "@angular/compiler-cli": "^4.0.0",
     "@types/jasmine": "2.5.38",
     "@types/node": "~6.0.60",
@@ -52,6 +53,8 @@
     "typescript": "~2.2.0"
   },
   "engines": {
-    "node": "4.1.1"
+    "node": "7.8.0",
+    "npm": "4.2.0"
+
   }
 }
