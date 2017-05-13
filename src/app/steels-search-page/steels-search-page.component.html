@@ -1,4 +1,8 @@
-<div class="content">
+<div class="content"
+     infinite-scroll
+     [infiniteScrollDistance]="0.1"
+     [infiniteScrollThrottle]="100"
+     (scrolled)="onScrollDown()">
   <div class="list-group" *ngIf="steels && steels.length > 0; else no_content">
     <a *ngFor="let steel of steels" class="list-group-item list-group-item-action flex-column align-items-start" [routerLink]="['/steel',steel._id]">
       <div class="d-flex w-100 justify-content-between">

@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ChartsModule } from 'ng2-charts';
 import { ReactiveFormsModule } from '@angular/forms';
+import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 
 import { AppComponent } from './app.component';
 
@@ -34,7 +35,8 @@ import { SteelsSearchPageComponent } from './steels-search-page/steels-search-pa
     ReactiveFormsModule,
     HttpModule,
     RoutingModule,
-    ChartsModule
+    ChartsModule,
+    InfiniteScrollModule
   ],
   bootstrap: [AppComponent]
 })

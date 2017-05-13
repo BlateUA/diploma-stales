@@ -18,9 +18,6 @@ MongoClient.connect(uri, function(err, database) {
     database.close();
   }
   db = database;
-  // db.collection("categories").find().toArray((err,res)=>{
-  //     console.log(res)
-  // });
 });
 
 router.get('/categories', (request, response) => {
@@ -42,8 +39,13 @@ router.get('/category/:id', ( request, response )=>{
   });
 });
 
-router.get('/steels', (request, response) => {
-  db.collection("steels").find().toArray((err,res)=>{
+router.get('/steels/:skip', (request, response) => {
+  const options ={
+    limit: 15,
+    skip: +request.params.skip || 0,
+    sort: "_id"
+  };
+  db.collection("steels").find({}, options).toArray((err,res)=>{
       if ( err ){
         response.status(500).send(err);
       }
@@ -61,9 +63,14 @@ router.get('/steel/:id', ( request, response )=>{
   });
 });
 
-router.get('/category/:id/steels', (request, response) => {
+router.get('/category/:id/steels/:skip', (request, response) => {
   const id = request.params.id;
-  db.collection("steels").find({"category":id}).toArray((err,res)=>{
+  const options ={
+    limit: 15,
+    skip: +request.params.skip || 0,
+    sort: "_id"
+  };
+  db.collection("steels").find({"category":id}, options).toArray((err,res)=>{
     if ( err ){
       response.status(500).send(err);
     }
@@ -71,9 +78,14 @@ router.get('/category/:id/steels', (request, response) => {
   });
 });
 
-router.get('/search/:query', (request, response) => {
+router.get('/search/:query/:skip', (request, response) => {
   const query = parseQuery(request.params.query);
-  db.collection("steels").find({$text:{$search:query}}).toArray((err,res)=>{
+  const options ={
+    limit: 15,
+    skip: +request.params.skip || 0,
+    sort: "_id"
+  };
+  db.collection("steels").find({$text:{$search:query}}, options).toArray((err,res)=>{
     if ( err ){
       response.status(500).send(err);
     }

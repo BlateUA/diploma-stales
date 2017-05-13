@@ -1,4 +1,8 @@
-<div class="content" *ngIf="category">
+<div class="content" *ngIf="category"
+     infinite-scroll
+     [infiniteScrollDistance]="0.1"
+     [infiniteScrollThrottle]="100"
+     (scrolled)="onScrollDown()">
   <h1 class="text-center ">{{ category.ukr }}</h1>
   <div class="list-group" *ngIf="steels">
     <a *ngFor="let steel of steels" class="list-group-item list-group-item-action flex-column align-items-start" [routerLink]="['/steel',steel._id]">

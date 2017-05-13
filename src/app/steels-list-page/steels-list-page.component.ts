@@ -14,6 +14,7 @@ export class SteelsListPageComponent implements OnInit {
   categoryId: string;
   category: Category;
   steels: Steel[];
+  private skip = 0;
 
   constructor(activeRoute: ActivatedRoute, api: AppWorkerService) {
     this.api = api;
@@ -22,14 +23,22 @@ export class SteelsListPageComponent implements OnInit {
 
   ngOnInit() {
     this.api.getCategoryById(this.categoryId).subscribe(res => this.category = res[0]);
-    this.api.getSteelsById(this.categoryId).subscribe(res => {
+    this.api.getSteelsById(this.categoryId, this.skip).subscribe(res => {
       if ( res && res.length ) {
         this.steels = res;
-        for (let i = 0; i < 10; i++) {
-          this.steels.push(this.steels[0]);
-        }
+        this.skip += 15;
       }
     });
+  }
+
+  getMoreSteels() {
+    this.api.getSteelsById(this.categoryId, this.skip ).subscribe(res => {
+      res.map(steel => this.steels.push(steel));
+    });
+    this.skip += 15;
+  }
+  onScrollDown() {
+    this.getMoreSteels();
   }
 
 }

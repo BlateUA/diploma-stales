@@ -23,22 +23,24 @@ export class AppWorkerService {
     return this.http.get(`${API}/${CATEGORY}/${id}`).map(res => res.json());
   }
 
-  getSteels() {
-    return this.http.get(`${API}/${STEELS}`)
-      .map(res => res.json());
+  getSteels( skip ) {
+    return this.http.get(`${API}/${STEELS}/${skip}`)
+      .map(res => {
+        return res.json();
+      });
   }
 
   getSteelById( id: string ) {
     return this.http.get(`${API}/${STEEL}/${id}`).map(res => res.json());
   }
-
-  getSteelsById(id: string) {
-    return this.http.get(`${API}/${CATEGORY}/${id}/${STEELS}`)
+  // steels by category id
+  getSteelsById(id: string, skip) {
+    return this.http.get(`${API}/${CATEGORY}/${id}/${STEELS}/${skip}`)
       .map(res => res.json());
   }
 
-  searchSteels(query: string) {
-    return this.http.get(`${API}/${SEARCH}/${query}`)
+  searchSteels(query: string, skip ) {
+    return this.http.get(`${API}/${SEARCH}/${query}/${skip}`)
       .map(res => res.json());
   }
 
