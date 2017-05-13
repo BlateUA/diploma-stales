@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ChartsModule } from 'ng2-charts';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
@@ -14,6 +15,7 @@ import { CategoriesPageComponent } from './categories-page/categories-page.compo
 import { AboutPageComponent } from './about-page/about-page.component';
 import { SteelPageComponent } from './steel-page/steel-page.component';
 import { SteelsListPageComponent } from './steels-list-page/steels-list-page.component';
+import { SteelsSearchPageComponent } from './steels-search-page/steels-search-page.component';
 
 @NgModule({
   declarations: [
@@ -23,11 +25,13 @@ import { SteelsListPageComponent } from './steels-list-page/steels-list-page.com
     CategoriesPageComponent,
     AboutPageComponent,
     SteelPageComponent,
-    SteelsListPageComponent
+    SteelsListPageComponent,
+    SteelsSearchPageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     RoutingModule,
     ChartsModule

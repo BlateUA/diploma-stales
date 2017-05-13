@@ -16,9 +16,9 @@
         <a class="nav-link" routerLink="/about" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Про нас</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" aria-label="Пошук"><i class="fa fa-search" aria-hidden="true"></i></button>
+    <form class="form-inline my-2 my-lg-0" [formGroup]="searchForm" (ngSubmit)="searchHandler($event)" >
+      <input formControlName="query" class="form-control mr-sm-2" type="text" placeholder="Пошук">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" aria-label="Пошук" ><i class="fa fa-search" aria-hidden="true"></i></button>
     </form>
   </div>
 </nav>

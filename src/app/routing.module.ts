@@ -7,12 +7,14 @@ import { CategoriesPageComponent } from './categories-page/categories-page.compo
 import { AboutPageComponent } from './about-page/about-page.component';
 import { SteelsListPageComponent } from './steels-list-page/steels-list-page.component';
 import { SteelPageComponent } from './steel-page/steel-page.component';
+import {SteelsSearchPageComponent} from './steels-search-page/steels-search-page.component';
 
 const routes: Routes = [
   { path: '', component: MainPageComponent },
   { path: 'steel/:id', component: SteelPageComponent },
   { path: 'categories', component: CategoriesPageComponent },
   { path: 'category/:id', component: SteelsListPageComponent  },
+  { path: 'search/:query', component: SteelsSearchPageComponent  },
   { path: 'about', component: AboutPageComponent },
   { path: '**', component: PageNotFoundComponent }
 ];

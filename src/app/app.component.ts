@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 import { AppWorkerService } from './app-worker.service';
-import { Category } from './consts/interfaces';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,11 +12,16 @@ import { Category } from './consts/interfaces';
 })
 export class AppComponent {
 
-  private categories: Category[];
+  public searchForm = this.fb.group({
+    query: ['', Validators.required]
+  });
 
-  constructor(private api: AppWorkerService) {
+  constructor(private api: AppWorkerService, private router: Router, private fb: FormBuilder) {
 
   }
-
+  searchHandler( event ) {
+    this.router.navigateByUrl( `/search/${this.searchForm.value.query}` );
+    this.searchForm.value.delete();
+  }
 
 }

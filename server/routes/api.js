@@ -71,4 +71,22 @@ router.get('/category/:id/steels', (request, response) => {
   });
 });
 
+router.get('/search/:query', (request, response) => {
+  const query = parseQuery(request.params.query);
+  db.collection("steels").find({$text:{$search:query}}).toArray((err,res)=>{
+    if ( err ){
+      response.status(500).send(err);
+    }
+    response.status(200).send(res);
+  });
+});
+
+function parseQuery(query) {
+  const arr = query.split(' ');
+  if (1 === arr.length) return query;
+  query = `\"${arr.join('\"\"')}\"`;
+  return query;
+
+}
+
 module.exports = router;

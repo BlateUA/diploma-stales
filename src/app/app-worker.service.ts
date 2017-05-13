@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Http, URLSearchParams } from '@angular/http';
+import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
-import { Category } from './consts/interfaces';
-import { API, CATEGORIES, CATEGORY, STEEL, STEELS } from './consts/consts';
+import { API, CATEGORIES, CATEGORY, STEEL, STEELS, SEARCH } from './consts/consts';
 
 @Injectable()
 export class AppWorkerService {
@@ -35,6 +34,11 @@ export class AppWorkerService {
 
   getSteelsById(id: string) {
     return this.http.get(`${API}/${CATEGORY}/${id}/${STEELS}`)
+      .map(res => res.json());
+  }
+
+  searchSteels(query: string) {
+    return this.http.get(`${API}/${SEARCH}/${query}`)
       .map(res => res.json());
   }
 

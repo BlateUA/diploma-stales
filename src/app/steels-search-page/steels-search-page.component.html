@@ -1,0 +1,11 @@
+<div class="content">
+  <div class="list-group" *ngIf="steels && steels.length > 0; else no_content">
+    <a *ngFor="let steel of steels" class="list-group-item list-group-item-action flex-column align-items-start" [routerLink]="['/steel',steel._id]">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{ steel.name }}</h5>
+      </div>
+      <p class="mb-1" *ngIf="steel.description" [innerHtml]="steel.description"></p>
+    </a>
+  </div>
+  <ng-template #no_content><h3>Нічого не знайдено.</h3></ng-template>
+</div>
