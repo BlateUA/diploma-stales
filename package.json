@@ -2,9 +2,11 @@
   "name": "stales-app",
   "version": "0.0.0",
   "license": "MIT",
+  "main": "server.js",
+  "author": "ViktorSadovyi",
   "scripts": {
+    "start": "ng build & node server.js",
     "ng": "ng",
-    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -48,5 +50,8 @@
     "ts-node": "~2.0.0",
     "tslint": "~4.5.0",
     "typescript": "~2.2.0"
+  },
+  "engines": {
+    "node": "4.1.1"
   }
 }
