@@ -24,6 +24,16 @@ td p {
   padding-bottom: 10px;
 }
 
+.content-right {
+  padding-top: 50px;
+  padding-left: 50px;
+}
+
+.canvas {
+  height: 300px;
+  width: 300px;
+}
+
 .table-wrapper {
   border-top: 1px solid black;
 }

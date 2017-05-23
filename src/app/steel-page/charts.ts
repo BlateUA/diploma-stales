@@ -12,6 +12,8 @@ export class Charts {
   public lineChartLabelsG: Array<any> = [];
   public lineChartDataDignity: Array<any> = [];
   public lineChartLabelsDignity: Array<any> = [];
+  public lineChartLabelsHeatCapacity: Array<any> = [];
+  public lineChartDataHeatCapacity: Array<any> = [];
   public lineChartOptions: any = {
     responsive: true
   };

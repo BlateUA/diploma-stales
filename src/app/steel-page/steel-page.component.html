@@ -154,7 +154,27 @@
           </thead>
           <tbody>
           <tr>
-            <td *ngFor="let key of dignitySchema.E">{{ key }}</td>
+            <td *ngFor="let key of steel.dignity">{{ key }}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf="steel.heatCapacity" class="table-wrapper text-center">
+        <h4 [innerHtml]="heatCapacitySchema.name"></h4>
+        <table class="table table-bordered table-hover">
+          <thead>
+          <tr>
+            <th [colSpan]="heatCapacitySchema.cells">
+              <h5 class="text-center" [innerHtml]="heatCapacitySchema.label"></h5>
+            </th>
+          </tr>
+          <tr>
+            <th class="text-center" *ngFor="let item of heatCapacitySchema.temp" [innerHtml]="item"></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td *ngFor="let key of steel.heatCapacity">{{ key }}</td>
           </tr>
           </tbody>
         </table>
@@ -164,7 +184,7 @@
   <div *ngIf="chartVisible" class="col-lg-6 content-right">
     <div *ngIf="charts.lineChartDataE.length > 0" style="display: block;">
       <h3 [innerHtml]="eSchema.name"></h3>
-      <canvas baseChart width="400" height="400"
+      <canvas baseChart
               [datasets]="charts.lineChartDataE"
               [labels]="charts.lineChartLabelsE"
               [options]="charts.lineChartOptions"
@@ -177,7 +197,7 @@
     </div>
     <div *ngIf="charts.lineChartDataG.length > 0" style="display: block;">
       <h3 [innerHtml]="gSchema.name"></h3>
-      <canvas baseChart width="400" height="400"
+      <canvas baseChart
               [datasets]="charts.lineChartDataG"
               [labels]="charts.lineChartLabelsG"
               [options]="charts.lineChartOptions"
@@ -190,9 +210,22 @@
     </div>
     <div *ngIf="charts.lineChartDataDignity.length > 0" style="display: block;">
       <h3 [innerHtml]="dignitySchema.name"></h3>
-      <canvas baseChart width="400" height="400"
+      <canvas baseChart
               [datasets]="charts.lineChartDataDignity"
               [labels]="charts.lineChartLabelsDignity"
+              [options]="charts.lineChartOptions"
+              [colors]="charts.lineChartColors"
+              [legend]="charts.lineChartLegend"
+              [chartType]="charts.lineChartType"
+              (chartHover)="charts.chartHovered($event)"
+              (chartClick)="charts.chartClicked($event)">
+      </canvas>
+    </div>
+    <div *ngIf="charts.lineChartDataHeatCapacity.length > 0" style="display: block;">
+      <h3 [innerHtml]="heatCapacitySchema.name"></h3>
+      <canvas baseChart
+              [datasets]="charts.lineChartDataHeatCapacity"
+              [labels]="charts.lineChartLabelsHeatCapacity"
               [options]="charts.lineChartOptions"
               [colors]="charts.lineChartColors"
               [legend]="charts.lineChartLegend"

@@ -5,7 +5,7 @@ import {
   Steel, TechDetailsSchema, CritPointsTemperatureSchema, ChemicalCompositionSchema, MechanicalPropertiesSchema,
   PropertiesSchema, Category
 } from '../consts/interfaces';
-import { techDetailsSchema, critPointsTemperatureSchema, chemicalCompositionSchema, mechanicalPropertiesSchema, dignitySchema, eSchema, gSchema } from '../consts/schemas';
+import { techDetailsSchema, critPointsTemperatureSchema, chemicalCompositionSchema, mechanicalPropertiesSchema, dignitySchema, eSchema, gSchema, heatCapacitySchema } from '../consts/schemas';
 import { Charts } from './charts';
 
 @Component({
@@ -24,6 +24,7 @@ export class SteelPageComponent implements OnInit {
   critPointsTemperatureSchema: CritPointsTemperatureSchema;
   chemicalCompositionSchema: ChemicalCompositionSchema;
   mechanicalPropertiesSchema: MechanicalPropertiesSchema;
+  heatCapacitySchema: PropertiesSchema;
   dignitySchema: PropertiesSchema;
   eSchema: PropertiesSchema;
   gSchema: PropertiesSchema;
@@ -49,6 +50,7 @@ export class SteelPageComponent implements OnInit {
     this.critPointsTemperatureSchema = critPointsTemperatureSchema;
     this.chemicalCompositionSchema = chemicalCompositionSchema;
     this.mechanicalPropertiesSchema = mechanicalPropertiesSchema;
+    this.heatCapacitySchema = heatCapacitySchema;
     this.eSchema = eSchema;
     this.gSchema = gSchema;
     this.dignitySchema = dignitySchema;
@@ -95,8 +97,12 @@ export class SteelPageComponent implements OnInit {
         this.charts.lineChartLabelsDignity = this.dignitySchema.temp;
         this.charts.lineChartDataDignity.push({data: this.steel.dignity, label: this.dignitySchema.header});
       }
+      if (this.steel.heatCapacity) {
+        this.heatCapacitySchema.cells = this.steel.heatCapacity.length;
+        this.charts.lineChartLabelsHeatCapacity = this.heatCapacitySchema.temp;
+        this.charts.lineChartDataHeatCapacity.push({data: this.steel.heatCapacity, label: this.heatCapacitySchema.header});
+      }
     });
   }
 
 }
-

@@ -9,27 +9,26 @@ export class AppWorkerService {
 
   static errorHandler(err: any): void {
     console.log(err);
-    // return Promise.reject(err.message || err);
   }
 
   constructor(private http: Http) { }
-
+  // get all categories
   getCategories() {
     return this.http.get(`${API}/${CATEGORIES}`)
       .map(res => res.json());
   }
-
+  // get category with id from param
   getCategoryById( id: string ) {
     return this.http.get(`${API}/${CATEGORY}/${id}`).map(res => res.json());
   }
-
+  // get all steels
   getSteels( skip ) {
     return this.http.get(`${API}/${STEELS}/${skip}`)
       .map(res => {
         return res.json();
       });
   }
-
+  // get steel with id from param
   getSteelById( id: string ) {
     return this.http.get(`${API}/${STEEL}/${id}`).map(res => res.json());
   }
@@ -38,7 +37,7 @@ export class AppWorkerService {
     return this.http.get(`${API}/${CATEGORY}/${id}/${STEELS}/${skip}`)
       .map(res => res.json());
   }
-
+  // get steels with query from param
   searchSteels(query: string, skip ) {
     return this.http.get(`${API}/${SEARCH}/${query}/${skip}`)
       .map(res => res.json());

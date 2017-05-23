@@ -61,10 +61,12 @@ const temp = [
   '900'
 ];
 
+const tempLabel = 'Температура випробовування, &deg;C';
+
 export const eSchema: PropertiesSchema = {
   name: 'Модуль нормальної пружності, Е, ГПа',
   header: 'E',
-  label: 'Температура випробовування, &deg;C',
+  label: tempLabel,
   temp: temp,
   cells: 10
 };
@@ -72,7 +74,7 @@ export const eSchema: PropertiesSchema = {
 export const gSchema: PropertiesSchema = {
   name: 'Модуль пружності при зсуві скрученням G, ГПа',
   header: 'G',
-  label: 'Температура випробовування, &deg;C',
+  label: tempLabel,
   temp: temp,
   cells: 10
 };
@@ -80,7 +82,26 @@ export const gSchema: PropertiesSchema = {
 export const dignitySchema: PropertiesSchema = {
   name: 'Густина p, кг/см<sup>3</sup>',
   header: 'p',
-  label: 'Температура випробовування, &deg;C',
+  label: tempLabel,
   temp: temp,
+  cells: 10
+};
+
+export const heatCapacitySchema: PropertiesSchema = {
+  name: 'Питома теплоємність, &deg;C',
+  header: 'C',
+  label: tempLabel,
+  temp: [
+    '20-100',
+    '20-200',
+    '20-300',
+    '20-400',
+    '20-500',
+    '20-600',
+    '20-700',
+    '20-800',
+    '20-900',
+    '20-1000'
+  ],
   cells: 10
 };

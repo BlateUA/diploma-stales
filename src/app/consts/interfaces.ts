@@ -17,9 +17,10 @@ export interface Steel {
   mechPropDependingOnTestTemperature?: object[];
   techDetails?: object;
   heatResistance?: object[];
-  dignity: string[];
-  G: string[];
-  E: string[];
+  dignity?: string[];
+  G?: string[];
+  E?: string[];
+  heatCapacity?: string[];
 }
 
 interface Countable {
