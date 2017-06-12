@@ -18,8 +18,8 @@ export class Charts {
       pointHoverBorderColor: 'rgba(148,159,177,0.8)'
     },
     { // grey
-      backgroundColor: 'rgba(148,159,177,0.2)',
-      borderColor: 'black',
+      backgroundColor: 'rgba(136, 204, 0, 0.2)',
+      borderColor: 'rgb(68, 102, 0, 1)',
       pointBackgroundColor: 'rgba(148,159,177,1)',
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
@@ -28,11 +28,5 @@ export class Charts {
   ];
   public lineChartLegend = true;
   public lineChartType = 'line';
-
-  public chartClicked(e: any): void {
-  }
-
-  public chartHovered(e: any): void {
-  }
 
 }
