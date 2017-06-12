@@ -61,6 +61,7 @@ export class SteelPageComponent implements OnInit {
     this.api.getSteelById(this.steelId).subscribe(steel => {
 
       this.steel = steel[0];
+
       this.api.getCategoryById(this.steel.category).subscribe(category => {
           this.category = category[0];
       });

@@ -17,6 +17,7 @@ import { AboutPageComponent } from './about-page/about-page.component';
 import { SteelPageComponent } from './steel-page/steel-page.component';
 import { SteelsListPageComponent } from './steels-list-page/steels-list-page.component';
 import { SteelsSearchPageComponent } from './steels-search-page/steels-search-page.component';
+import { ComparativePageComponent } from './comparative-page/comparative-page.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { SteelsSearchPageComponent } from './steels-search-page/steels-search-pa
     AboutPageComponent,
     SteelPageComponent,
     SteelsListPageComponent,
-    SteelsSearchPageComponent
+    SteelsSearchPageComponent,
+    ComparativePageComponent
   ],
   imports: [
     BrowserModule,

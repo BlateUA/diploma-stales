@@ -1,0 +1,21 @@
+<div class="row content" *ngIf="steel1 && steel2">
+  <div class='col-lg-12 text-center'>
+    <h1>{{steel1.name}} VS {{steel2.name}}</h1>
+  </div>
+  <div class="col-lg-12 chart">
+    <div *ngIf="charts.lineChartDataE.length > 0" style="display: block;">
+      <h3 [innerHtml]="eSchema.name"></h3>
+      <canvas baseChart
+              [datasets]="charts.lineChartDataE"
+              [labels]="charts.lineChartLabelsE"
+              [options]="charts.lineChartOptions"
+              [colors]="charts.lineChartColors"
+              [legend]="charts.lineChartLegend"
+              [chartType]="charts.lineChartType"
+              (chartHover)="charts.chartHovered($event)"
+              (chartClick)="charts.chartClicked($event)">
+      </canvas>
+    </div>
+  </div>
+</div>
+

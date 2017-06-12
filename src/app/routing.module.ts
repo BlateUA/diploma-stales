@@ -8,6 +8,7 @@ import { AboutPageComponent } from './about-page/about-page.component';
 import { SteelsListPageComponent } from './steels-list-page/steels-list-page.component';
 import { SteelPageComponent } from './steel-page/steel-page.component';
 import {SteelsSearchPageComponent} from './steels-search-page/steels-search-page.component';
+import { ComparativePageComponent } from './comparative-page/comparative-page.component';
 
 const routes: Routes = [
   { path: '', component: MainPageComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'category/:id', component: SteelsListPageComponent  },
   { path: 'search/:query', component: SteelsSearchPageComponent  },
   { path: 'about', component: AboutPageComponent },
+  { path: 'alpha/comparative', component: ComparativePageComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

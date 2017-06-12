@@ -1,19 +1,10 @@
 /**
- * Created by viktor on 10.05.17.
+ * Created by viktor on 12.06.17.
  */
 export class Charts {
-  public doughnutChartLabels: string[] = [];
-  public doughnutChartData: number[] = [];
-  public doughnutChartType = 'doughnut';
 
   public lineChartDataE: Array<any> = [];
   public lineChartLabelsE: Array<any> = [];
-  public lineChartDataG: Array<any> = [];
-  public lineChartLabelsG: Array<any> = [];
-  public lineChartDataDignity: Array<any> = [];
-  public lineChartLabelsDignity: Array<any> = [];
-  public lineChartLabelsHeatCapacity: Array<any> = [];
-  public lineChartDataHeatCapacity: Array<any> = [];
   public lineChartOptions: any = {
     responsive: true
   };
@@ -21,6 +12,14 @@ export class Charts {
     { // grey
       backgroundColor: 'rgba(148,159,177,0.2)',
       borderColor: 'rgba(148,159,177,1)',
+      pointBackgroundColor: 'rgba(148,159,177,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+    },
+    { // grey
+      backgroundColor: 'rgba(148,159,177,0.2)',
+      borderColor: 'black',
       pointBackgroundColor: 'rgba(148,159,177,1)',
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
